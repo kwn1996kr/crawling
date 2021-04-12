@@ -1009,7 +1009,7 @@ class googleimagesdownload:
         if arguments['limit']:
             limit = int(arguments['limit'])
         else:
-            limit = 1000
+            limit = 100
 
         if arguments['url']:
             current_time = str(datetime.datetime.now()).split('.')[0]
@@ -1073,7 +1073,7 @@ class googleimagesdownload:
                                                 arguments['specific_site'],
                                                 arguments['safe_search'])  # building main search url
 
-                    if limit < 1001:
+                    if limit < 101:
                         images, tabs = self.download_page(url)  # download page
                     else:
                         images, tabs = self.download_extended_page(url, arguments['chromedriver'])
@@ -1104,7 +1104,7 @@ class googleimagesdownload:
                         for key, value in tabs.items():
                             final_search_term = (search_term + " - " + key)
                             print("\nNow Downloading - " + final_search_term)
-                            if limit < 1001:
+                            if limit < 101:
                                 images, _ = self.download_page(value)  # download page
                             else:
                                 images, _ = self.download_extended_page(value, arguments['chromedriver'])
